@@ -48,6 +48,22 @@ def set_background(image_path):
         button[title="Open sidebar"] {{
             display: none !important;
         }}
+
+        .stButton>button {{
+        background-color: rgba(255, 255, 255, 0.8); /* Solid base */
+        color: black;
+        border: 1px solid rgba(0,0,0,0.2);
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+    }}
+
+     /* Hover state */
+        .stButton>button:hover {{
+        background-color: rgba(230, 230, 250, 0.95);
+        color: white;
+        border: 1px solid rgba(0,0,0,0.3);
+        transform: scale(1.02);
+    }}
         </style>
         """,
         unsafe_allow_html=True

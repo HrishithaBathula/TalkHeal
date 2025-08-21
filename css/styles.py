@@ -96,7 +96,7 @@ def apply_custom_css():
         .main .block-container {{
             padding-top: 1rem;
             padding-bottom: 2.5rem;
-            max-width: 1080px;
+            max-width: 1200px;
             margin: 0 auto;
         }}
 
@@ -112,6 +112,384 @@ def apply_custom_css():
             color: var(--text-secondary);
             line-height: 1.68;
             margin-bottom: 1.1em;
+        }}
+
+        /* ===== NEW FEATURE CARDS STYLING ===== */
+        
+        /* Hero Welcome Section */
+        .hero-welcome-section {{
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-xl);
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            --gradient: linear-gradient(100deg, var(--primary-color), var(--secondary-color)); /* ← Define gradient here */
+        }}
+
+        .hero-welcome-section::before {{
+            content: '';
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 4px; /* ← Made thicker for better visibility */
+            background: var(--gradient);
+            animation: gradientFlow 7s linear infinite;
+            background-size: 200% 200%;
+            z-index: 2; /* ← Ensure it's above other content */
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* ← Match container's top radius */
+        }}
+
+        @keyframes gradientFlow {{
+            0% {{ background-position: 0% 50%; }}
+            50% {{ background-position: 100% 50%; }}
+            100% {{ background-position: 0% 50%; }}
+        }} 
+        
+        .hero-title {{
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }}
+        
+        .hero-subtitle {{
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+            font-weight: 400;
+        }}
+        
+        /* Current Tone Display */
+        .current-tone-display {{
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }}
+        
+        .tone-label {{
+            font-size: 1.1em;
+            color: rgba(255,255,255,0.8);
+            margin-right: 10px;
+        }}
+        
+        .tone-value {{
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--primary-light);
+        }}
+        
+        /* Features Grid Container */
+        .features-grid-container {{
+            margin: 30px 0;
+        }}
+        
+        /* Base Feature Card Styles */
+        .feature-card {{
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            border-radius: var(--radius-xl);
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }}
+        
+        .feature-card:hover {{
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.3);
+        }}
+        
+        .feature-card::before {{
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }}
+        
+        .feature-card:hover::before {{
+            opacity: 1;
+        }}
+        
+        /* Primary Feature Cards */
+        .primary-card {{
+            min-height: 200px;
+        }}
+        
+        .yoga-card {{
+            border-left: 4px solid #10b981;
+        }}
+        
+        .breathing-card {{
+            border-left: 4px solid #3b82f6;
+        }}
+        
+        .journal-card {{
+            border-left: 4px solid #f59e0b;
+        }}
+        
+        /* Secondary Feature Cards */
+        .secondary-card {{
+            min-height: 180px;
+        }}
+        
+        .doctor-card {{
+            border-left: 4px solid #ef4444;
+        }}
+        
+        .tools-card {{
+            border-left: 4px solid #8b5cf6;
+        }}
+        
+        /* Dashboard Cards */
+        .dashboard-card {{
+            min-height: 160px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.15) 100%);
+        }}
+        
+        .mood-card {{
+            border-left: 4px solid #ec4899;
+        }}
+        
+        .focus-card {{
+            border-left: 4px solid #06b6d4;
+        }}
+        
+        /* Card Content Styling */
+        .feature-card .card-icon {{
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }}
+        
+        .feature-card .card-icon-large {{
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }}
+        
+        .feature-card h3 {{
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: white;
+            text-align: center;
+        }}
+        
+        .feature-card p {{
+            font-size: 1em;
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }}
+        
+        .card-features {{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+        }}
+        
+        .card-features span {{
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+        }}
+        
+        .card-stats {{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }}
+        
+        .stat {{
+            text-align: center;
+        }}
+        
+        .stat-number {{
+            display: block;
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary-light);
+        }}
+        
+        .stat-label {{
+            font-size: 0.8em;
+            color: rgba(255,255,255,0.7);
+        }}
+        
+        /* Emergency Support Section */
+        .emergency-support-section {{
+            background: linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.15) 100%);
+            border-radius: var(--radius-xl);
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(239,68,68,0.3);
+        }}
+        
+        .emergency-content h3 {{
+            color: #fecaca;
+            margin-bottom: 10px;
+        }}
+        
+        .emergency-content p {{
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+        }}
+        
+        /* Mood Tracking Section */
+        .mood-tracking-section {{
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }}
+        
+        .mood-tracking-section h3 {{
+            color: white;
+            margin-bottom: 10px;
+        }}
+        
+        .mood-tracking-section p {{
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+        }}
+
+        /* ===== SIDEBAR ENHANCEMENTS ===== */
+        
+        /* Sidebar Section Headers */
+        .sidebar-section-header {{
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }}
+        
+        .sidebar-section-header h3 {{
+            margin: 0 0 8px 0;
+            font-size: 1.1em;
+            color: white;
+        }}
+        
+        .sidebar-section-header p {{
+            margin: 0;
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.7);
+        }}
+        
+        /* Sidebar Tip Card */
+        .sidebar-tip-card {{
+            background: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(34,197,94,0.15) 100%);
+            border-radius: var(--radius-lg);
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16,185,129,0.3);
+        }}
+        
+        .tip-header {{
+            font-weight: 600;
+            color: #a7f3d0;
+            margin-bottom: 10px;
+        }}
+        
+        /* Sidebar Music Section */
+        .sidebar-music-section {{
+            background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(168,85,247,0.15) 100%);
+            border-radius: var(--radius-lg);
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139,92,246,0.3);
+        }}
+        
+        .music-header {{
+            font-weight: 600;
+            color: #c4b5fd;
+            margin-bottom: 10px;
+        }}
+        
+        /* Feature Icon Sidebar */
+        .feature-icon-sidebar {{
+            font-size: 1.8em;
+            text-align: center;
+            line-height: 1;
+            margin-top: 8px;
+        }}
+        
+        /* Emergency Sidebar Section */
+        .emergency-sidebar-section {{
+            background: linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.15) 100%);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(239,68,68,0.3);
+        }}
+        
+        .emergency-sidebar-section .emergency-icon {{
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }}
+        
+        .emergency-sidebar-section h4 {{
+            margin: 0 0 8px 0;
+            color: #fecaca;
+        }}
+        
+        .emergency-sidebar-section p {{
+            margin: 0;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.8);
+        }}
+        
+        /* Theme Info Display */
+        .theme-info-display {{
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 12px;
+            text-align: center;
+            margin: 10px 0;
+        }}
+        
+        .theme-name {{
+            color: var(--primary-light);
+            font-weight: 600;
         }}
 
         /* Message bubble styling */
@@ -302,14 +680,14 @@ def apply_custom_css():
         /* Sidebar styling */
         [data-testid="stSidebar"] {{
             background: linear-gradient(120deg, rgba(236,72,153,0.45), rgba(219,39,119,0.25), rgba(236,72,153,0.15)) !important;
-            backdrop-filter: blur(15px) !important;
+            backdrop-filter: blur(6px) !important;
             border-right: 2px solid rgba(236,72,153,0.35) !important;
             box-shadow: 8px 0 48px rgba(236,72,153,0.25) !important;
             color: #e2e8f0 !important;
             transition: background .32s cubic-bezier(.5,.13,.36,1.19);
         }}
         [data-testid="stSidebar"] * {{
-            color: #f5f7fb !important;
+            color: #314775 !important;
         }}
 
         /* Sidebar toggle button styling */
@@ -449,6 +827,7 @@ def apply_custom_css():
             font-weight: 700 !important;
             transform: translateX(8px) scale(1.02) !important;
         }}
+        
         /* Dedicated style for the red emergency button */
         .stButton > button[kind="secondary"] {{
             background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
@@ -536,7 +915,7 @@ def apply_custom_css():
         .stExpanderHeader,
         .stExpanderContent {{
             background: rgba(255, 255, 255, 0.30) !important;
-            color: #f7fafc !important;
+            color: #faf7fc !important;
             border-radius: var(--radius-lg, 18px) !important;
             border: 1.5px solid var(--border, rgba(255,255,255,0.11)) !important;
             box-shadow: 0 2px 12px rgba(33,40,98,0.10) !important;
@@ -552,12 +931,62 @@ def apply_custom_css():
 
         /* Responsive design for mobile */
         @media (max-width: 768px) {{
-            .main .block-container {{ padding: 1rem; }}
-            .user-message, .bot-message {{ max-width: 98%; font-size: 1em; padding: 12px 13px; }}
-            .main-header h1 {{ font-size: 1.52em; }}
-            .main-header, .welcome-message {{ padding: 16px 4vw; }}
-            .floating-action-button {{ bottom: 18px; right: 18px; width: 46px; height: 46px; font-size: 15px; }}
-            [data-testid="stSidebar"] {{ width: 280px !important; }}
+            .main .block-container {{ 
+                padding: 1rem; 
+                max-width: 95%;
+            }}
+            
+            .user-message, .bot-message {{ 
+                max-width: 98%; 
+                font-size: 1em; 
+                padding: 12px 13px; 
+            }}
+            
+            .main-header h1 {{ 
+                font-size: 1.52em; 
+            }}
+            
+            .main-header, .welcome-message {{ 
+                padding: 16px 4vw; 
+            }}
+            
+            .floating-action-button {{ 
+                bottom: 18px; 
+                right: 18px; 
+                width: 46px; 
+                height: 46px; 
+                font-size: 15px; 
+            }}
+            
+            [data-testid="stSidebar"] {{ 
+                width: 280px !important; 
+            }}
+            
+            .hero-title {{
+                font-size: 1.8em;
+            }}
+            
+            .hero-subtitle {{
+                font-size: 1em;
+            }}
+            
+            .feature-card {{
+                padding: 20px 15px;
+                margin-bottom: 15px;
+            }}
+            
+            .feature-card .card-icon,
+            .feature-card .card-icon-large {{
+                font-size: 2.5em;
+            }}
+            
+            .feature-card h3 {{
+                font-size: 1.2em;
+            }}
+            
+            .features-grid-container {{
+                margin: 20px 0;
+            }}
         }}
 
         /* Sidebar section styling */
@@ -568,8 +997,89 @@ def apply_custom_css():
             padding: 20px 14px !important;
             margin-bottom: 18px;
             border: 1px solid var(--light-transparent-border, rgba(255,255,255,.23)) !important;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(4px);
             box-shadow: 0 3px 14px rgba(0,0,0,0.07);
         }}
+
+        /* Animation for feature cards loading */
+        .feature-card {{
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: calc(var(--animation-order, 0) * 0.1s);
+        }}
+
+        @keyframes fadeInUp {{
+            from {{
+                opacity: 0;
+                transform: translateY(30px);
+            }}
+            to {{
+                opacity: 1;
+                transform: translateY(0);
+            }}
+        }}
+
+        /* Smooth transitions for all interactive elements */
+        * {{
+            transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }}
+
+        /* Enhanced focus styles for accessibility */
+        button:focus,
+        .stButton > button:focus,
+        input:focus,
+        textarea:focus {{
+            outline: 2px solid var(--primary-color) !important;
+            outline-offset: 2px !important;
+        }}
+
+        /* Expander (Theme Settings box) */
+        .streamlit-expanderHeader {{
+        background: var(--surface-alt) !important;
+        color: var(--text-primary) !important;
+        border-radius: var(--radius-lg) !important;
+        padding: 6px 12px !important;
+        font-weight: 600 !important;
+    }}
+
+       .streamlit-expanderContent {{
+        background: var(--surface) !important;
+        border-radius: var(--radius-lg) !important;
+        padding: 12px !important;
+        box-shadow: var(--shadow) !important;
+    }}
+
+/* Selectbox (Dropdown menu for palette) */
+    .stSelectbox > div > div {{
+    background: var(--glass-effect) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius) !important;
+    transition: var(--transition) !important;
+    }}
+
+.stSelectbox > div > div:hover {{
+    background: var(--primary-light) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--primary) !important;
+}}
+
+/* Dropdown menu items */
+.stSelectbox ul {{
+    background: var(--surface-alt) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius) !important;
+}}
+
+.stSelectbox ul li {{
+    color: var(--text-primary) !important;
+}}
+
+.stSelectbox ul li:hover {{
+    background: var(--primary-dark) !important;
+    color: var(--text-primary) !important;
+}}
+
+
+
     </style>
     """, unsafe_allow_html=True)

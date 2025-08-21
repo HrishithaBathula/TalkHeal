@@ -88,7 +88,8 @@ def show_login_page():
             width: 100%;
         }
 
-        .auth-button button {
+        /* Normal state */
+        .stButton > button {
             width: 100%;
             padding: 0.85rem;
             border-radius: 8px;
@@ -98,12 +99,13 @@ def show_login_page():
             color: #121212;
             margin-top: 0.5rem;
             cursor: pointer;
-            background-color: #10B981;
+            background-color: #10B981 !important;
             transition: background-color 0.2s ease;
         }
 
-        .auth-button button:hover {
-            background-color: #14D396;
+        /* Hover state */
+        .stButton > button:hover {
+            background-color: #14D396 !important;
         }
 
         .switch-link {
@@ -210,3 +212,4 @@ if __name__ == "__main__":
             st.session_state.authenticated = False
             st.session_state.user_name = ""
             st.rerun()
+            
